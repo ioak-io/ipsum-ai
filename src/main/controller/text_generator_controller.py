@@ -12,8 +12,7 @@ text_generator_controller = Blueprint('text_generator_controller', __name__)
 def generate_text():
   data = request.get_json()
   input_text = data.get('input_text', '')
-  num_sentences = data.get('num_sentences', 3)
 
-  generated_sentences = generate_sentences(input_text, num_sentences=num_sentences)
+  generated_sentences = generate_sentences(input_text)
   response = {'generated_sentences': generated_sentences}
   return jsonify(response)
